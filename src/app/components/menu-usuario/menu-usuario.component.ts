@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ArepuertosService } from 'src/app/services/arepuertos.service';
+import { VuelosService } from 'src/app/services/vuelos.service';
 
 
 
@@ -14,19 +16,57 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class MenuUsuarioComponent {
 
 
-  vuelos: Vuelo[] = [
-    { idVuelo: 1, idAvion:11, origen: 'Cali', destino: 'Bogota',  horaSalida:'7pm', horaLlegada:'9pm',  precioVip: 100, precioNormal: 80, precioBasico:50 },
-    { idVuelo: 2, idAvion:22, origen: 'Medellin', destino: 'Buenos Aires', horaSalida:'7pm', horaLlegada:'9pm', precioVip: 150, precioNormal: 90, precioBasico:60  },
-    { idVuelo: 3, idAvion:33,  origen: 'Barranquilla', destino: 'New york', horaSalida:'7pm', horaLlegada:'9pm', precioVip: 200, precioNormal: 100, precioBasico:70 }
-  ];
+  aeropuertosOrigen:any[] = []
+  aeropuertosDestino:any[] = []
 
 
+  vuelos: Vuelo[] =[]
+
+
+ngOnInit(){
+  this.vueloServ.getVuelos().subscribe(vuelo=>{
+    this.vuelos=vuelo
+    console.log(this.vuelos)
+
+    for(let i=0; i<this.vuelos.length; i++){
+
+
+
+      this.obtenerAeropuertoById(this.vuelos[i].idAeropuertoOrigen).then((n:any)=>{
+        this.aeropuertosOrigen.push(n)
+
+      })
+
+    }
+
+    for(let i=0; i<this.vuelos.length; i++){
+      this.obtenerAeropuertoById(this.vuelos[i].idAeropuertoDestino).then((n:any)=>{
+        this.aeropuertosDestino.push(n)
+
+      })
+
+    }
+
+    console.log(this.aeropuertosOrigen)
+    console.log(this.aeropuertosDestino)
+
+  })
+
+
+}
+
+obtenerAeropuertoById(id:number):any{
+  const nombre=""
+  return new Promise((resolve, reject)=>{this.aeroServ.getAeropuertoById(id).subscribe(aeropueto=> {resolve (aeropueto.nombre)})})
+
+
+}
 
 asientoEconomicos:string[]=[]
 asientosPrimeras:string[]=[]
 asientosBasicos:string[]=[]
 
-constructor(private fb: FormBuilder){}
+constructor(private fb: FormBuilder, private vueloServ:VuelosService, private aeroServ: ArepuertosService){}
 myForm:FormGroup = this.fb.group({
 
 idVuelo: [,[Validators.required]],
@@ -75,7 +115,6 @@ sasientoBasicos(nAsiento:string){
 }
 
 interface Vuelo {
-
   idVuelo: number;
   idAvion: number;
   origen: string;
@@ -85,8 +124,8 @@ interface Vuelo {
   precioVip: number;
   precioNormal: number;
   precioBasico: number;
-
-
+  idAeropuertoOrigen:number;
+  idAeropuertoDestino:number;
 }
 
 

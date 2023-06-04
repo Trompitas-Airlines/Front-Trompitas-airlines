@@ -9,9 +9,11 @@ export class VuelosService {
 
   constructor(private http: HttpClient) { }
 
-  public get(url:string){
+  urlVuelos:string = "http://localhost:8080/vuelo"
 
-    return this.http.get(url);
+  public getVuelos():Observable<any>{
+
+    return this.http.get(this.urlVuelos + "/obtenerVuelosActivos");
 
 
   }

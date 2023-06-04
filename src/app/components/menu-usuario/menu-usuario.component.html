@@ -12,7 +12,7 @@
         <div class="input-group">
             <label for="">Seleccionar vuelo</label>
             <select formControlName="idVuelo" >
-              <option   *ngFor="let item of vuelos" [value]="item.idVuelo">{{item.origen}} - {{item.destino}}</option>
+              <option   *ngFor="let item of vuelos;let i=index" >{{aeropuertosOrigen[i]}} - {{aeropuertosDestino[i]}}</option>
             </select>
         </div>
         <div class="input-group f-class">
