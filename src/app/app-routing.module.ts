@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.component';
 
+
 const routes: Routes = [
 {path:'', redirectTo: 'home', pathMatch: 'full'},
 {path:'home', component: HomeComponent},

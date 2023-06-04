@@ -4,16 +4,18 @@
 
 </head>
 <body>
-<form class="login-form" action="javascript:void(0);">
+
+<form (ngSubmit)="login()" [formGroup]="loginUsuario"  class="login-form">
+
   <h1>Login</h1>
   <div class="form-input-material">
-    <input type="text" name="username" id="username" placeholder=" " autocomplete="off" class="form-control-material"  />
+    <input formControlName="username" type="text" name="username" id="username" placeholder=" " autocomplete="off" class="form-control-material"  />
     <label >Username</label>
   </div>
   <div class="form-input-material">
-    <input type="password" name="password" id="password" placeholder=" " autocomplete="off" class="form-control-material"  />
+    <input formControlName="password" type="password" name="password" id="password" placeholder=" " autocomplete="off" class="form-control-material"  />
     <label>Password</label>
   </div>
-  <button type="submit" class="btn btn-primary btn-ghost" [routerLink]="['/dashboard-boton']">Login</button>
+  <button [disabled]="loginUsuario.invalid" type="submit" class="btn btn-primary btn-ghost"  >Login</button>
 </form>
 </body>

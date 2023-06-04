@@ -1,1 +1,51 @@
-<p>dashboard-admin works!</p>
+<div class="wrapper">
+  <nav>
+    <ul>
+        <li><a class="active" href="#">Volver</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content container">
+    <form  class="booking-form">
+        <h3>Reserva de vuelos</h3>
+        <div class="input-group">
+            <label for="">Vuela desde</label>
+            <input  id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh" value="">
+        </div>
+        <div class="input-group">
+            <label for="">Vuela para</label>
+            <input id="flying-to" class="inp-style" type="text" name="" placeholder="New York, United States"
+                value="">
+        </div>
+        <div class="inputs">
+            <div class="input-group">
+                <label for="">Parte</label>
+                    <input  id="departure-date" class="inp-style" type="date" name="" value="">
+            </div>
+            <div class="input-group">
+                <label for="">Regresa</label>
+                <input  id="return-date" class="inp-style" type="date" name="">
+            </div>
+        </div>
+
+        <div class="vuelosPrecio">
+          <label for="">Precio de los asientos vip es</label>
+          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
+          <label for="">Precio de los asientos normales es</label>
+          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
+          <label for="">Precio del asientos basicos es</label>
+          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
+
+
+        </div>
+
+
+        <button id="book-btn" class="btn-style">Reserva ahora</button>
+
+      </form>
+
+
+    </div>
+
+
+

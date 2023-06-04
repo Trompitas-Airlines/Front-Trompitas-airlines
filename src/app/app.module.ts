@@ -7,6 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
