@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ArepuertosService } from 'src/app/services/arepuertos.service';
+import { AeropuertosService } from 'src/app/services/arepuertos.service';
 import { VuelosService } from 'src/app/services/vuelos.service';
 
 
@@ -66,7 +66,7 @@ asientoEconomicos:string[]=[]
 asientosPrimeras:string[]=[]
 asientosBasicos:string[]=[]
 
-constructor(private fb: FormBuilder, private vueloServ:VuelosService, private aeroServ: ArepuertosService){}
+constructor(private fb: FormBuilder, private vueloServ:VuelosService, private aeroServ: AeropuertosService){}
 myForm:FormGroup = this.fb.group({
 
 idVuelo: [,[Validators.required]],

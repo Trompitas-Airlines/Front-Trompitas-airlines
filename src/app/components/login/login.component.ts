@@ -26,7 +26,7 @@ login() {
   const password = this.loginUsuario.value.password;
 
 
-  if (username === 'mauroesgay' && password === 'nicolasesgay') {
+  if (username === 'Admin' && password === '1234') {
 
     this.router.navigate(['/dashboard-boton']);
   } else {
