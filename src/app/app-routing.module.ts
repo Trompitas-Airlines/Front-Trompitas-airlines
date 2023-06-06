@@ -4,6 +4,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.component';
+import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,11 @@ const routes: Routes = [
 {path:'admin-boton', component: LoginComponent},
 {path:'menu-usuario', component: MenuUsuarioComponent},
 {path:'siguiente-boton', component: MenuUsuarioComponent},
-{path: 'dashboard-boton', component: DashboardAdminComponent}
+{path: 'dashboard-boton', component: DashboardAdminComponent},
+{path: 'login-usuario', component: LoginUsuarioComponent},
+{path: 'boton-loginUsario', component: MenuUsuarioComponent}
+
+
 ];
 
 @NgModule({

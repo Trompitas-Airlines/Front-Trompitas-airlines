@@ -17,7 +17,7 @@ export class AsientosService {
 
   }
 
-  public postAsiento(asiento:any):Observable<any>{
+  public postAsiento({ asiento }: { asiento: any; }):Observable<any>{
     return this.http.post(this.urlAsiento + "/guardarAsiento", asiento);
   }
 

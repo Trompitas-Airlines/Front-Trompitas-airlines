@@ -8,7 +8,7 @@
 <form (ngSubmit)="login()" [formGroup]="loginUsuario"  class="login-form">
 
   <h1>Login</h1>
-  <span *ngIf="error" class="alert alert-danger">Credenciales Invalidas </span>
+  <span *ngIf="error" class="alert alert-danger">No existe un usuario con esta cedula! </span>
   <div class="form-input-material">
     <input formControlName="cedula" type="text" name="username" id="username" placeholder=" " autocomplete="off" class="form-control-material"  />
     <label >Cedula</label>

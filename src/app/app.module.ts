@@ -9,6 +9,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
 import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 
 
 @NgModule({
@@ -18,13 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DashboardAdminComponent,
     MenuUsuarioComponent,
+    LoginUsuarioComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+
 
   ],
   providers: [],

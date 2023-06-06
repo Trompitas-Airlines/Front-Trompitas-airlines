@@ -6,43 +6,57 @@
   </nav>
 
   <div class="main-content container">
-    <form  class="booking-form">
-        <h3>Reserva de vuelos</h3>
+    <form  [formGroup]="myForm" class="booking-form">
+        <h3>Crear vuelos</h3>
+        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios y los precio deben ser mayores a $10.000</span>
         <div class="input-group">
-            <label for="">Vuela desde</label>
-            <input  id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh" value="">
+            <label for="">Ingresa IdAeropuerto desde donde vuela:</label>
+            <input formControlName="idAeropuertoOrigen"  id="flying-from" class="inp-style" type="number" name="" placeholder="Dhake, Bangladesh" value="">
         </div>
         <div class="input-group">
-            <label for="">Vuela para</label>
-            <input id="flying-to" class="inp-style" type="text" name="" placeholder="New York, United States"
+            <label for="">Ingresa IdAeropuerto hacia donde vuela:</label>
+            <input formControlName="idAeropuertoDestino" id="flying-to" class="inp-style" type="number" name="" placeholder="New York, United States"
                 value="">
+        </div>
+        <div class="input-group">
+            <label for="">Modelo del avion:</label>
+            <input formControlName="ModeloAvion"  id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh" value="">
         </div>
         <div class="inputs">
             <div class="input-group">
-                <label for="">Parte</label>
-                    <input  id="departure-date" class="inp-style" type="date" name="" value="">
+                <label for="">Precio:</label>
+                    <input formControlName="precio" id="departure-time" class="inp-style" type="number" name="" value="">
             </div>
             <div class="input-group">
-                <label for="">Regresa</label>
-                <input  id="return-date" class="inp-style" type="date" name="">
+                <label for="">Hora Salida:</label>
+                <input  formControlName="horaSalida" id="return-time" class="inp-style" type="datetime-local" name="">
             </div>
+            <div class="input-group">
+              <label for="">Hora Llegada:</label>
+              <input  formControlName="horaLlegada" id="return-time" class="inp-style" type="datetime-local" name="">
+          </div>
         </div>
 
         <div class="vuelosPrecio">
-          <label for="">Precio de los asientos vip es</label>
-          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
-          <label for="">Precio de los asientos normales es</label>
-          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
-          <label for="">Precio del asientos basicos es</label>
-          <input type="number" min="0" max="10000" step="1" name="Broker_Fees" id="broker_fees" required="required">
+          <label for="">Precio de los asientos VIP:</label>
+          <input formControlName="precioAsientoVip" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
+          <label for="">Precio de los asientos clase media:</label>
+          <input formControlName="precioAsientoNormal" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
+          <label for="">Precio del asientos comunes:</label>
+          <input formControlName="precioAsientoBasico" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
 
 
         </div>
 
 
-        <button id="book-btn" class="btn-style">Reserva ahora</button>
+        <button (click)="enviar()" id="book-btn" class="btn-style">Crea el vuelo</button>
+        <span *ngIf="bien" class="alert alert-success">Vuelo Creado con exito</span>
 
       </form>
+
+
+
+
 
 
     </div>

@@ -9,10 +9,11 @@
   <div class="main-content container">
     <form [formGroup]="myForm" class="booking-form">
         <h3>Reserva de vuelos</h3>
+        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios solo puedes escoger una silla</span>
         <div class="input-group">
             <label for="">Seleccionar vuelo</label>
             <select formControlName="idVuelo" >
-              <option   *ngFor="let item of vuelos;let i=index" >{{aeropuertosOrigen[i]}} - {{aeropuertosDestino[i]}}</option>
+              <option   *ngFor ="let item of vuelos;let i=index" [value] = "item.idVuelo" >{{aeropuertosOrigen[i]}} - {{aeropuertosDestino[i]}}</option>
             </select>
         </div>
         <div class="input-group f-class">
@@ -150,11 +151,48 @@
         </div>
       </div>
         <h3 id="conformation-message" class="conformation"></h3>
-        <button (click)="enviar()" id="book-btn" class="btn-style">Reserva ahora</button>
+
+        <button (click)="enviarAhora()" id="book-btn" class="btn-style">Reserva ahora</button>
+
+        <button (click)="enviar()" id="book-btn" class="btn-style">Reserva y paga Despues</button>
+
       </form>
 
     <div class="booking-content">
-        <h1>DESCUBRE <br> A TRAVES DEL MUNDO</h1>
+        <h1>DESCUBRE <br> A TRAVÉS DEL MUNDO</h1>
+
+      <div style="color: black;" class="info-box" *ngIf="vuelo">
+          <pre>
+            <span >Id del vuelo:{{vuelosMostrar.idVuelo}}</span>
+            <span >El aeropuerto de origen es:{{vuelosMostrar.idAeropuertoOrigen}}</span>
+            <span >Id aeropuertode destino es:{{vuelosMostrar.idAeropuertoDestino}}</span>
+            <span >EL precio es:{{vuelosMostrar.precio}}</span>
+            <span >la hora de salida es:{{vuelosMostrar.horaSalida}}</span>
+            <span >La hora de llegada es:{{vuelosMostrar.horaLlegada}}</span>
+            <span >El precio del asiento vip es:{{vuelosMostrar.precioAsientoVip}}</span>
+            <span >el precio del asiento normal es:{{vuelosMostrar.precioAsientoNormal}}</span>
+            <span >El precio del asineot basico es:{{vuelosMostrar.precioAsientoBasico}}</span>
+          </pre>
+            </div>
+
+            <!-- {
+              "idVuelo": 6,
+              "idAeropuertoOrigen": 24,
+              "idAeropuertoDestino": 8,
+              "precio": 999,
+              "horaSalida": "2023-03-25T11:00:00.000+00:00",
+              "horaLlegada": "2023-03-25T12:00:00.000+00:00",
+              "precioAsientoVip": 2499,
+              "precioAsientoNormal": 1499,
+              "precioAsientoBasico": 799,
+              "estado": "A"
+            } -->
+
+
+
+
+
+
 
 </div>
 
