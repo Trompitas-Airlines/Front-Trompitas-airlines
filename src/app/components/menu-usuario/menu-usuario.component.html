@@ -2,161 +2,332 @@
 <div class="wrapper">
   <nav>
     <ul>
-        <li><a class="active" href="#">Volver</a></li>
+        <li><a class="active" href="#">HOME</a></li>
     </ul>
   </nav>
 
   <div class="main-content container">
     <form [formGroup]="myForm" class="booking-form">
         <h3>Reserva de vuelos</h3>
-        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios solo puedes escoger una silla</span>
+        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios, solo puedes escoger una silla</span>
         <div class="input-group">
-            <label for="">Seleccionar vuelo</label>
+            <label for="">Seleccionar vuelo: </label>
             <select formControlName="idVuelo" >
               <option   *ngFor ="let item of vuelos;let i=index" [value] = "item.idVuelo" >{{aeropuertosOrigen[i]}} - {{aeropuertosDestino[i]}}</option>
             </select>
         </div>
         <div class="input-group f-class">
             <div>
-                <label for="">Clase vip</label>
+                <label for="">Clase VIP</label>
             </div>
             <div class="plus-minus-btn">
 
             </div>
         </div>
-        <div class="contenedor-asientos" multiple >
+        <div class="contenedor-asientos">
+
           <div class="sub-contenedor-asientos">
-            <input (click)="sasientoPrimera('00')" type="checkbox"/>
-            <input (click)="sasientoPrimera('01')" type="checkbox"/>
-            <input (click)="sasientoPrimera('02')" type="checkbox"/>
-            <input (click)="sasientoPrimera('03')" type="checkbox"/>
-            <input (click)="sasientoPrimera('04')" type="checkbox"/>
+            <label>
+              <input (click)="sasientoNormal('A1')" type="checkbox" [checked]="asientoSeleccionado === 'A1'" [disabled]="false" />
+              A1
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A2')" type="checkbox" [checked]="asientoSeleccionado === 'A2'" [disabled]="false" />
+              A2
+            </label>       
+            <label>
+              <input (click)="sasientoNormal('A3')" type="checkbox" [checked]="asientoSeleccionado === 'A3'" [disabled]="false" />
+              A3
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A4')" type="checkbox" [checked]="asientoSeleccionado === 'A4'" [disabled]="false"/>
+              A4
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A5')" type="checkbox" [checked]="asientoSeleccionado === 'A5'" [disabled]="false"/>
+              A5
+            </label>   
           </div>
           <div class="sub-contenedor-asientos">
-            <input (click)="sasientoPrimera('10')" type="checkbox"/>
-            <input (click)="sasientoPrimera('11')" type="checkbox"/>
-            <input (click)="sasientoPrimera('12')" type="checkbox"/>
-            <input (click)="sasientoPrimera('13')" type="checkbox"/>
-            <input (click)="sasientoPrimera('14')" type="checkbox"/>
+            <label>
+              <input (click)="sasientoNormal('A6')" type="checkbox" [checked]="asientoSeleccionado === 'A6'" [disabled]="false"/>
+              A6
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A7')" type="checkbox" [checked]="asientoSeleccionado === 'A7'" [disabled]="false"/>
+              A7
+            </label>       
+            <label>
+              <input (click)="sasientoNormal('A8')" type="checkbox" [checked]="asientoSeleccionado === 'A8'" [disabled]="false"/>
+              A8
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A9')" type="checkbox" [checked]="asientoSeleccionado === 'A9'" [disabled]="false"/>
+              A9
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A10')" type="checkbox" [checked]="asientoSeleccionado === 'A10'" [disabled]="false"/>
+              A5
+            </label>  
           </div>
           <div class="sub-contenedor-asientos">
-            <input (click)="sasientoPrimera('20')" type="checkbox"/>
-            <input (click)="sasientoPrimera('21')" type="checkbox"/>
-            <input (click)="sasientoPrimera('22')" type="checkbox"/>
-            <input (click)="sasientoPrimera('23')" type="checkbox"/>
-            <input (click)="sasientoPrimera('24')" type="checkbox"/>
+            <label>
+              <input (click)="sasientoNormal('A11')" type="checkbox" [checked]="asientoSeleccionado === 'A11'" [disabled]="false"/>
+              A11
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A12')" type="checkbox" [checked]="asientoSeleccionado === 'A12'" [disabled]="false"/>
+              A12
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A13')" type="checkbox" [checked]="asientoSeleccionado === 'A13'" [disabled]="false"/>
+              A13
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A14')" type="checkbox" [checked]="asientoSeleccionado === 'A14'" [disabled]="false"/>
+              A14
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A15')" type="checkbox" [checked]="asientoSeleccionado === 'A15'" [disabled]="false"/>
+              A15
+            </label>
           </div>
           <div class="sub-contenedor-asientos">
-            <input (click)="sasientoPrimera('30')" type="checkbox"/>
-            <input (click)="sasientoPrimera('31')" type="checkbox"/>
-            <input (click)="sasientoPrimera('42')" type="checkbox"/>
-            <input (click)="sasientoPrimera('43')" type="checkbox"/>
-            <input (click)="sasientoPrimera('44')" type="checkbox"/>
+            <label>
+              <input (click)="sasientoNormal('A16')" type="checkbox" [checked]="asientoSeleccionado === 'A16'" [disabled]="false"/>
+              A16
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A17')" type="checkbox"[checked]="asientoSeleccionado === 'A17'" [disabled]="false"/>
+              A17
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A18')" type="checkbox"[checked]="asientoSeleccionado === 'A18'" [disabled]="false"/>
+              A18
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A19')" type="checkbox"[checked]="asientoSeleccionado === 'A19'" [disabled]="false"/>
+              A19
+            </label>
+            <label>
+              <input (click)="sasientoNormal('A20')" type="checkbox"[checked]="asientoSeleccionado === 'A20'" [disabled]="false"/>
+              A20
+            </label>
           </div>
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoPrimera('50')" type="checkbox"/>
-            <input (click)="sasientoPrimera('51')" type="checkbox"/>
-            <input (click)="sasientoPrimera('52')" type="checkbox"/>
-            <input (click)="sasientoPrimera('53')" type="checkbox"/>
-            <input (click)="sasientoPrimera('54')" type="checkbox"/>
-          </div>
+
         </div>
+        
+        
+        
 
         <div class="input-group f-class">
             <div>
-                <label for="">Clase Normal</label>
+                <label for="">Clase normal</label>
             </div>
             <div class="plus-minus-btn">
             </div>
         </div>
       <div class="contenedor-asientos" multiple >
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoNormal('00')" type="checkbox"/>
-            <input (click)="sasientoNormal('01')" type="checkbox"/>
-            <input (click)="sasientoNormal('02')" type="checkbox"/>
-            <input (click)="sasientoNormal('03')" type="checkbox"/>
-            <input (click)="sasientoNormal('04')" type="checkbox"/>
-          </div>
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoNormal('10')" type="checkbox"/>
-            <input (click)="sasientoNormal('11')" type="checkbox"/>
-            <input (click)="sasientoNormal('12')" type="checkbox"/>
-            <input (click)="sasientoNormal('13')" type="checkbox"/>
-            <input (click)="sasientoNormal('14')" type="checkbox"/>
-          </div>
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoNormal('20')" type="checkbox"/>
-            <input (click)="sasientoNormal('21')" type="checkbox"/>
-            <input (click)="sasientoNormal('22')" type="checkbox"/>
-            <input (click)="sasientoNormal('23')" type="checkbox"/>
-            <input (click)="sasientoNormal('24')" type="checkbox"/>
-          </div>
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoNormal('30')" type="checkbox"/>
-            <input (click)="sasientoNormal('31')" type="checkbox"/>
-            <input (click)="sasientoNormal('42')" type="checkbox"/>
-            <input (click)="sasientoNormal('43')" type="checkbox"/>
-            <input (click)="sasientoNormal('44')" type="checkbox"/>
-          </div>
-          <div class="sub-contenedor-asientos">
-            <input (click)="sasientoNormal('50')" type="checkbox"/>
-            <input (click)="sasientoNormal('51')" type="checkbox"/>
-            <input (click)="sasientoNormal('52')" type="checkbox"/>
-            <input (click)="sasientoNormal('53')" type="checkbox"/>
-            <input (click)="sasientoNormal('54')" type="checkbox"/>
-          </div>
+
+
+        <div class="sub-contenedor-asientos">
+          <label>
+            <input (click)="sasientoNormal('B1')" type="checkbox" [checked]="asientoSeleccionado === 'B1'" [disabled]="false"/>
+            B1
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B2')" type="checkbox" [checked]="asientoSeleccionado === 'B2'" [disabled]="false"/>
+            B2
+          </label>       
+          <label>
+            <input (click)="sasientoNormal('B3')" type="checkbox" [checked]="asientoSeleccionado === 'B3'" [disabled]="false"/>
+            B3
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B4')" type="checkbox" [checked]="asientoSeleccionado === 'B4'" [disabled]="false"/>
+            B4
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B5')" type="checkbox" [checked]="asientoSeleccionado === 'B5'" [disabled]="false"/>
+            B5
+          </label>   
         </div>
+        <div class="sub-contenedor-asientos">
+          <label>
+            <input (click)="sasientoNormal('B6')" type="checkbox" [checked]="asientoSeleccionado === 'B6'" [disabled]="false"/>
+            B6
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B7')" type="checkbox" [checked]="asientoSeleccionado === 'B7'" [disabled]="false"/>
+            B7
+          </label>       
+          <label>
+            <input (click)="sasientoNormal('B8')" type="checkbox" [checked]="asientoSeleccionado === 'B8'" [disabled]="false"/>
+            B8
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B9')" type="checkbox" [checked]="asientoSeleccionado === 'B9'" [disabled]="false"/>
+            B9
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B10')" type="checkbox" [checked]="asientoSeleccionado === 'B10'" [disabled]="false"/>
+            B5
+          </label>  
+        </div>
+        <div class="sub-contenedor-asientos">
+          <label>
+            <input (click)="sasientoNormal('B11')" type="checkbox" [checked]="asientoSeleccionado === 'B11'" [disabled]="false"/>
+            B11
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B12')" type="checkbox" [checked]="asientoSeleccionado === 'B12'" [disabled]="false"/>
+            B12
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B13')" type="checkbox" [checked]="asientoSeleccionado === 'B13'" [disabled]="false"/>
+            B13
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B14')" type="checkbox" [checked]="asientoSeleccionado === 'B14'" [disabled]="false"/>
+            B14
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B15')" type="checkbox" [checked]="asientoSeleccionado === 'B15'" [disabled]="false"/>
+            B15
+          </label>
+        </div>
+        <div class="sub-contenedor-asientos">
+          <label>
+            <input (click)="sasientoNormal('B16')" type="checkbox" [checked]="asientoSeleccionado === 'B16'" [disabled]="false"/>
+            B16
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B17')" type="checkbox"[checked]="asientoSeleccionado === 'B17'" [disabled]="false"/>
+            B17
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B18')" type="checkbox"[checked]="asientoSeleccionado === 'B18'" [disabled]="false"/>
+            B18
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B19')" type="checkbox"[checked]="asientoSeleccionado === 'B19'" [disabled]="false"/>
+            B19
+          </label>
+          <label>
+            <input (click)="sasientoNormal('B20')" type="checkbox"[checked]="asientoSeleccionado === 'B20'" [disabled]="false"/>
+            B20
+          </label>
+        </div>
+      </div>
+
+      
         <div class="input-group f-class">
           <div>
-              <label for="">Clase Basica</label>
+              <label for="">Clase básica</label>
           </div>
           <div class="plus-minus-btn">
           </div>
-      </div>
+        </div>
     <div class="contenedor-asientos" multiple >
-        <div class="sub-contenedor-asientos">
-          <input (click)="sasientoBasico('00')" type="checkbox"/>
-          <input (click)="sasientoBasico('01')" type="checkbox"/>
-          <input (click)="sasientoBasico('02')" type="checkbox"/>
-          <input (click)="sasientoBasico('03')" type="checkbox"/>
-          <input (click)="sasientoBasico('04')" type="checkbox"/>
-        </div>
-        <div class="sub-contenedor-asientos">
-          <input (click)="sasientoBasico('10')" type="checkbox"/>
-          <input (click)="sasientoBasico('11')" type="checkbox"/>
-          <input (click)="sasientoBasico('12')" type="checkbox"/>
-          <input (click)="sasientoBasico('13')" type="checkbox"/>
-          <input (click)="sasientoBasico('14')" type="checkbox"/>
-        </div>
-        <div class="sub-contenedor-asientos">
-          <input (click)="sasientoBasico('20')" type="checkbox"/>
-          <input (click)="sasientoBasico('21')" type="checkbox"/>
-          <input (click)="sasientoBasico('22')" type="checkbox"/>
-          <input (click)="sasientoBasico('23')" type="checkbox"/>
-          <input (click)="sasientoBasico('24')" type="checkbox"/>
-        </div>
-        <div class="sub-contenedor-asientos">
-          <input (click)="sasientoBasico('30')" type="checkbox"/>
-          <input (click)="sasientoBasico('31')" type="checkbox"/>
-          <input (click)="sasientoBasico('42')" type="checkbox"/>
-          <input (click)="sasientoBasico('43')" type="checkbox"/>
-          <input (click)="sasientoBasico('44')" type="checkbox"/>
-        </div>
-        <div class="sub-contenedor-asientos">
-          <input (click)="sasientoBasico('50')" type="checkbox"/>
-          <input (click)="sasientoBasico('51')" type="checkbox"/>
-          <input (click)="sasientoBasico('52')" type="checkbox"/>
-          <input (click)="sasientoBasico('53')" type="checkbox"/>
-          <input (click)="sasientoBasico('54')" type="checkbox"/>
-        </div>
+
+      <div class="sub-contenedor-asientos">
+        <label>
+          <input (click)="sasientoNormal('C1')" type="checkbox" [checked]="asientoSeleccionado === 'C1'" [disabled]="false"/>
+          C1
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C2')" type="checkbox" [checked]="asientoSeleccionado === 'C2'" [disabled]="false"/>
+          C2
+        </label>       
+        <label>
+          <input (click)="sasientoNormal('C3')" type="checkbox" [checked]="asientoSeleccionado === 'C3'" [disabled]="false"/>
+          C3
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C4')" type="checkbox" [checked]="asientoSeleccionado === 'C4'" [disabled]="false"/>
+          C4
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C5')" type="checkbox" [checked]="asientoSeleccionado === 'C5'" [disabled]="false"/>
+          C5
+        </label>   
       </div>
+      <div class="sub-contenedor-asientos">
+        <label>
+          <input (click)="sasientoNormal('C6')" type="checkbox" [checked]="asientoSeleccionado === 'C6'" [disabled]="false"/>
+          C6
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C7')" type="checkbox" [checked]="asientoSeleccionado === 'C7'" [disabled]="false"/>
+          C7
+        </label>       
+        <label>
+          <input (click)="sasientoNormal('C8')" type="checkbox" [checked]="asientoSeleccionado === 'C8'" [disabled]="false"/>
+          C8
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C9')" type="checkbox" [checked]="asientoSeleccionado === 'C9'" [disabled]="false"/>
+          C9
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C10')" type="checkbox" [checked]="asientoSeleccionado === 'C10'" [disabled]="false"/>
+          C5
+        </label>  
+      </div>
+      <div class="sub-contenedor-asientos">
+        <label>
+          <input (click)="sasientoNormal('C11')" type="checkbox" [checked]="asientoSeleccionado === 'C11'" [disabled]="false"/>
+          C11
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C12')" type="checkbox" [checked]="asientoSeleccionado === 'C12'" [disabled]="false"/>
+          C12
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C13')" type="checkbox" [checked]="asientoSeleccionado === 'C13'" [disabled]="false"/>
+          C13
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C14')" type="checkbox" [checked]="asientoSeleccionado === 'C14'" [disabled]="false"/>
+          C14
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C15')" type="checkbox" [checked]="asientoSeleccionado === 'C15'" [disabled]="false"/>
+          C15
+        </label>
+      </div>
+      <div class="sub-contenedor-asientos">
+        <label>
+          <input (click)="sasientoNormal('C16')" type="checkbox" [checked]="asientoSeleccionado === 'C16'" [disabled]="false"/>
+          C16
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C17')" type="checkbox"[checked]="asientoSeleccionado === 'C17'" [disabled]="false"/>
+          C17
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C18')" type="checkbox"[checked]="asientoSeleccionado === 'C18'" [disabled]="false"/>
+          C18
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C19')" type="checkbox"[checked]="asientoSeleccionado === 'C19'" [disabled]="false"/>
+          C19
+        </label>
+        <label>
+          <input (click)="sasientoNormal('C20')" type="checkbox"[checked]="asientoSeleccionado === 'C20'" [disabled]="false"/>
+          C20
+        </label>
+      </div>
+        
+    </div>
+
         <h3 id="conformation-message" class="conformation"></h3>
 
-        <button (click)="preciosAsientos()" id="book-btn" class="btn-style">Ver precios de asientos</button>
+        <button (click)="preciosAsientos()" id="book-btn" class="btn-style">Ver información vuelo</button>
 
         <button (click)="enviarAhora()" id="book-btn" class="btn-style">Reserva ahora</button>
 
-        <button (click)="enviar()" id="book-btn" class="btn-style">Reserva y paga Despues</button>
+        <button (click)="enviar()" id="book-btn" class="btn-style">Reserva y paga después</button>
 
       </form>
 
@@ -166,23 +337,26 @@
       <div style="color: black;" class="info-box" *ngIf="mostrarPrecios">
 
         <pre>
-          <span >El precio del asiento vip es:{{vuelosMostrar.precioAsientoVip}}</span>
-          <span >el precio del asiento normal es:{{vuelosMostrar.precioAsientoNormal}}</span>
-          <span >El precio del asiento basico es:{{vuelosMostrar.precioAsientoBasico}}</span>
+          <span>|-------------------Info Vuelo---------------------</span>
+          <span >|Precio asiento VIP: {{vuelosMostrar.precioAsientoVip}}$</span>
+          <span >|Precio asiento normal: {{vuelosMostrar.precioAsientoNormal}}$</span>
+          <span >|Precio asiento básico: {{vuelosMostrar.precioAsientoBasico}}$</span>
+          <span >|Hora de salida: {{vuelosMostrar.horaSalida}}</span>
+          <span >|Hora de llegada: {{vuelosMostrar.horaLlegada}}</span>
+          <span>|-----------------------------------------------</span> 
         </pre>
 
       </div>
 
       <div style="color: black;" class="info-box" *ngIf="vuelo">
           <pre>
-            <span >Id del vuelo:{{vuelosMostrar.idVuelo}}</span>
-            <span >El aeropuerto de origen es:{{vuelosMostrar.idAeropuertoOrigen}}</span>
-            <span >Id aeropuertode destino es:{{vuelosMostrar.idAeropuertoDestino}}</span>
-            <span >EL precio es:{{precio}}</span>
-            <span >la hora de salida es:{{vuelosMostrar.horaSalida}}</span>
-            <span >La hora de llegada es:{{vuelosMostrar.horaLlegada}}</span>
-            <span >La hora de llegada es:{{vuelosMostrar.horaLlegada}}</span>
-            
+            <span>|------------Factura-------|</span>
+            <span >| Id del vuelo: {{vuelosMostrar.idVuelo}}        |</span>
+            <span >| Id aeropuerto origen: {{vuelosMostrar.idAeropuertoOrigen}}  |</span>
+            <span >| Id aeropuerto destino: {{vuelosMostrar.idAeropuertoDestino}} |</span>
+            <span >| Precio total: {{precio}}$       |</span>
+            <span>| Asiento: {{asientoSeleccionado}}              |</span>
+            <span>|---------------------------|</span>
           </pre>
         </div>
     </div>

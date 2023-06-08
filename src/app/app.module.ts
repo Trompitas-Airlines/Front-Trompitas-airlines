@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

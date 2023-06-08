@@ -25,9 +25,13 @@ export class MenuUsuarioComponent {
   precio: number = 0
   vuelo: boolean = false
 
+
+
   aeropuertosOrigen: any[] = []
   aeropuertosDestino: any[] = []
   vuelos: Vuelo[] = []
+
+  asientoSeleccionadoC: string = '';
 
   mostrarOcultar() {
 
@@ -56,21 +60,22 @@ export class MenuUsuarioComponent {
         }
         )
       }
-
-      console.log(this.aeropuertosOrigen)
-      console.log(this.aeropuertosDestino)
-
     })
   }
 
   obtenerAeropuertoById(id: number): any {
     const nombre = ""
-    return new Promise((resolve, reject) => { this.aeroServ.getAeropuertoById(id).subscribe(aeropueto => { resolve(aeropueto.nombre) }) })
+    return new Promise((resolve, reject) => { this.aeroServ.getAeropuertoById(id).subscribe(aeropueto => { resolve(aeropueto.ubicacion) }) })
 
   }
   asientosVIP: string[] = []
   asientosNormales: string[] = []
   asientosBasicos: string[] = []
+
+  asientoSeleccionado: string = '';
+  asientosSeleccionadosCheck: string[] = [];
+
+
 
   vuelosMostrar: Vuelo = {
 
@@ -89,6 +94,7 @@ export class MenuUsuarioComponent {
   }
 
   constructor(private fb: FormBuilder, private vueloServ: VuelosService, private aeroServ: AeropuertosService, private asiServ: AsientosService, private resServ: ReservasService, private facturaServ: FacturasService, private toastr: ToastrService) { }
+
   myForm: FormGroup = this.fb.group({
 
     idVuelo: [, [Validators.required]],
@@ -271,16 +277,30 @@ export class MenuUsuarioComponent {
   sasientoPrimera(nAsiento: string) {
     this.asientosVIP.push(nAsiento)
     this.myForm.controls['idSilla'].setValue(nAsiento)
+
+    this.asientoSeleccionado = nAsiento;
+
+    this.asientoSeleccionadoC = nAsiento;
   }
 
   sasientoNormal(nAsiento: string) {
     this.asientosNormales.push(nAsiento)
     this.myForm.controls['idSilla'].setValue(nAsiento)
+
+    this.asientoSeleccionado = nAsiento;
+
+    this.asientoSeleccionadoC = nAsiento;
+
   }
 
   sasientoBasico(nAsiento: string) {
     this.asientosBasicos.push(nAsiento)
     this.myForm.controls['idSilla'].setValue(nAsiento)
+
+    this.asientoSeleccionado = nAsiento;
+
+    this.asientoSeleccionadoC = nAsiento;
+
   }
 }
 

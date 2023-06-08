@@ -8,18 +8,18 @@
   <div class="main-content container">
     <form  [formGroup]="myForm" class="booking-form">
         <h3>Crear vuelos</h3>
-        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios y los precio deben ser mayores a $10.000</span>
+        <span *ngIf="error" class="alert alert-danger">Todos los campos son obligatorios y los precios deben ser mayores o iguales a 10.000$</span>
         <div class="input-group">
-            <label for="">Ingresa IdAeropuerto desde donde vuela:</label>
+            <label for="">Ingrese IdAeropuerto desde donde vuela:</label>
             <input formControlName="idAeropuertoOrigen"  id="flying-from" class="inp-style" type="number" name="" placeholder="Dhake, Bangladesh" value="">
         </div>
         <div class="input-group">
-            <label for="">Ingresa IdAeropuerto hacia donde vuela:</label>
+            <label for="">Ingrese IdAeropuerto hacia donde vuela:</label>
             <input formControlName="idAeropuertoDestino" id="flying-to" class="inp-style" type="number" name="" placeholder="New York, United States"
                 value="">
         </div>
         <div class="input-group">
-            <label for="">Modelo del avion:</label>
+            <label for="">Modelo del avión:</label>
             <input formControlName="ModeloAvion"  id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh" value="">
         </div>
         <div class="inputs">
@@ -38,28 +38,14 @@
         </div>
 
         <div class="vuelosPrecio">
-          <label for="">Precio de los asientos VIP:</label>
+          <label for="">Precio asientos VIP:</label>
           <input formControlName="precioAsientoVip" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
-          <label for="">Precio de los asientos clase media:</label>
+          <label for="">Precio asientos normales:</label>
           <input formControlName="precioAsientoNormal" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
-          <label for="">Precio del asientos comunes:</label>
+          <label for="">Precio asientos básicos:</label>
           <input formControlName="precioAsientoBasico" type="number"  step="1" name="Broker_Fees" id="broker_fees" required="required">
-
-
         </div>
-
-
-        <button (click)="enviar()" id="book-btn" class="btn-style">Crea el vuelo</button>
-        <span *ngIf="bien" class="alert alert-success">Vuelo Creado con exito</span>
+        <button (click)="enviar()" id="book-btn" class="btn-style">Crear vuelo</button>        
 
       </form>
-
-
-
-
-
-
     </div>
-
-
-

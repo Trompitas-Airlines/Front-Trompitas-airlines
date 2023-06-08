@@ -1,18 +1,21 @@
 <head>
   <meta charset="UTF-8">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/alphardex/aqua.css@master/dist/aqua.min.css'><link rel="stylesheet" >
-
+  
 </head>
 <body>
-
+    <div>
+      <a class="active" href="#">Volver</a>
+  </div>
+  
 <form (ngSubmit)="login()" [formGroup]="loginUsuario"  class="login-form">
-
   <h1>Login</h1>
-  <span *ngIf="error" class="alert alert-danger">No existe un usuario con esta cedula! </span>
+  <span *ngIf="error" class="alert alert-danger">No existe un usuario con esta cédula</span>
   <div class="form-input-material">
     <input formControlName="cedula" type="text" name="username" id="username" placeholder=" " autocomplete="off" class="form-control-material"  />
-    <label >Cedula</label>
+    <label >Cédula</label>
   </div>
   <button [disabled]="loginUsuario.invalid" type="submit" class="btn btn-primary btn-ghost"  >Login</button>
 </form>
+
 </body>

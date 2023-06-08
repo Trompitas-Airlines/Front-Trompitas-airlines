@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65) ), url(../../../assets/bglogin.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(../../../assets/bglogin.jpg);
 }
 
 .btn {
@@ -11,6 +11,7 @@ body {
   border-radius: 0;
   overflow: hidden;
 }
+
 .btn::before {
   position: absolute;
   content: "";
@@ -22,10 +23,12 @@ body {
   transform: translateX(-100%);
   transition: 0.6s;
 }
+
 .btn:hover {
   background: transparent;
   box-shadow: 0 0 20px 10px rgba(51, 152, 219, 0.5);
 }
+
 .btn:hover::before {
   transform: translateX(100%);
 }
@@ -34,6 +37,7 @@ body {
   --input-default-border-color: white;
   --input-border-bottom-color: white;
 }
+
 .form-input-material input {
   color: white;
 }
@@ -48,13 +52,33 @@ body {
   border-radius: 10px;
   box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 12px 12px rgba(128, 128, 128, 0.35);
 }
+
 .login-form h1 {
   margin: 0 0 24px 0;
 }
+
 .login-form .form-input-material {
   margin: 12px 0;
 }
+
 .login-form .btn {
   width: 100%;
   margin: 18px 0 9px 0;
+}
+
+.active {
+  position: absolute;
+  top: 90px;
+  right: 150px;
+  list-style: none;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  content: '';
+  height: 3px;
+  width: 3.5%;
+  background: #009688;
+  transition: 0.5s;
+
 }
