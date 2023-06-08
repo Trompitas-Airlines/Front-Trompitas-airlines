@@ -7,29 +7,33 @@ import { Observable } from 'rxjs';
 })
 export class ReservasService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  urlReserva:string = "http://localhost:8080/reserva"
+  urlReserva: string = "http://localhost:8080/reserva"
 
-  public getReservaById(id:number):Observable<any>{
+  public getReservaById(id: number): Observable<any> {
 
     return this.http.get(this.urlReserva + "/obtenerReserva/" + id);
 
   }
 
-  public getReservasActivas():Observable<any>{
+  public getReservasActivas(): Observable<any> {
     return this.http.get(this.urlReserva + "/obtenerReservasActivas");
   }
 
-  public postReserva(reserva:any):Observable<any>{
-    return this.http.post(this.urlReserva + "/guardarReserva", reserva);
-  }
-
-  public getReservas():Observable<any>{
+  public getReservas(): Observable<any> {
     return this.http.get(this.urlReserva + "/obtenerReservas");
   }
 
-  public putReserva(id: number):Observable<any>{
+  public postReserva(reserva: any): Observable<any> | null {
+    try {
+      return this.http.post(this.urlReserva + "/guardarReserva", reserva);
+    } catch (err) {
+      return null;
+    }
+  }
+
+  public putReserva(id: number): Observable<any> {
     return this.http.put(this.urlReserva + "/actualizarReserva/" + id, null);
   }
 }

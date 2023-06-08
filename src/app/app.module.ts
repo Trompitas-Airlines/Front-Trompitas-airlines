@@ -10,6 +10,8 @@ import { MenuUsuarioComponent } from './components/menu-usuario/menu-usuario.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -27,8 +29,8 @@ import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

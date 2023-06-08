@@ -7,35 +7,37 @@ import { Observable } from 'rxjs';
 })
 export class UsuariosService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  urlUsuario:string = "http://localhost:8080/usuario"
+  urlUsuario: string = "http://localhost:8080/usuario"
 
-  public getUsuarioById(id:number):Observable<any>{
+  public getUsuarioById(id: number): Observable<any> {
 
     return this.http.get(this.urlUsuario + "/obtenerUsuario/" + id);
 
   }
 
-  public getUsuariosActivos():Observable<any>{  
+  public getUsuariosActivos(): Observable<any> {
 
     return this.http.get(this.urlUsuario + "/obtenerUsuariosActivos");
 
   }
 
-  public getUsuarios():Observable<any>{  
+  public getUsuarios(): Observable<any> {
 
     return this.http.get(this.urlUsuario + "/obtenerUsuarios");
 
   }
 
-  public postUsuario(usuario:any):Observable<any>{  
-
-    return this.http.post(this.urlUsuario + "/guardarUsuario" ,usuario);
-
+  public postUsuario(usuario: any): Observable<any> | null {
+    try {
+      return this.http.post(this.urlUsuario + "/guardarUsuario", usuario);
+    } catch (err) {
+      return null;
+    }
   }
 
-  public putUsuario(id: number):Observable<any>{
+  public putUsuario(id: number): Observable<any> {
     return this.http.put(this.urlUsuario + "/actualizarUsuario/" + id, null);
   }
 }
