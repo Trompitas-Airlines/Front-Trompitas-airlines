@@ -33,7 +33,7 @@ export class ReservasService {
     }
   }
 
-  public putReserva(reserva:any): Observable<any> {
-    return this.http.put(this.urlReserva + "/actualizarReserva/" + reserva.idReserva, reserva);
+  public putReserva(reserva: any): Observable<any> {
+    return this.http.put(this.urlReserva + "/eliminarReserva/" + reserva.idReserva, reserva);
   }
 }
