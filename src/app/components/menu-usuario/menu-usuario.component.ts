@@ -24,12 +24,16 @@ export class MenuUsuarioComponent {
   error: boolean = false
   precio: number = 0
   vuelo: boolean = false
+  reserva:any;
 
 
 
   aeropuertosOrigen: any[] = []
   aeropuertosDestino: any[] = []
   vuelos: Vuelo[] = []
+  factura1:boolean = false
+  factura2:boolean = false
+  mensajePago:boolean = false
 
   asientoSeleccionadoC: string = '';
 
@@ -41,6 +45,28 @@ export class MenuUsuarioComponent {
     } else {
       this.vuelo = true
     }
+  }
+
+
+  actFactura(){
+    let reserva = {
+      idVuelo: this.reserva.idVuelo,
+      idAsiento: this.reserva.idAsiento,
+      idUsuario: 1,
+      precioTotal: this.reserva.precio,
+      estadoPago: "P",
+      fecha: this.reserva.fecha,
+      estado: "A"
+
+    }
+    console.log(reserva)
+    this.resServ.putReserva(this.reserva).subscribe(data => {
+      this.mensajePago = true
+    })
+
+
+
+
   }
 
   ngOnInit() {
@@ -129,6 +155,26 @@ export class MenuUsuarioComponent {
       ubicacion: "",
       estado: "A"
     }
+    if (this.asientosVIP.length != 0) {
+      asiento.idTipoAsiento = 1
+      asiento.ubicacion = this.asientosVIP[0]
+      this.precio += vuelo.precioAsientoVip
+    }
+
+    if (this.asientosNormales.length != 0) {
+      asiento.idTipoAsiento = 2
+      asiento.ubicacion = this.asientosNormales[0]
+      this.precio += vuelo.precioAsientoNormal
+
+    }
+
+    if (this.asientosBasicos.length != 0) {
+      asiento.idTipoAsiento = 3
+      asiento.ubicacion = this.asientosBasicos[0]
+      this.precio += vuelo.precioAsientoBasico
+
+    }
+    
 
     console.log(vuelo)
     this.vuelosMostrar = vuelo
@@ -153,10 +199,12 @@ export class MenuUsuarioComponent {
         this.resServ.postReserva(reserva)?.subscribe(
           data => {
             console.log(data)
+            this.reserva=reserva
           },
           err => {
             this.toastr.error(err.error.mensaje, "Error")
           }
+
 
         )
         console.log(res)
@@ -174,6 +222,8 @@ export class MenuUsuarioComponent {
       this.error = false
       this.crearAsiento()
       this.mostrarOcultar()
+      this.factura1 = false
+      this.factura2 = true
     } else {
 
       this.error = true
@@ -185,6 +235,8 @@ export class MenuUsuarioComponent {
       this.error = false
       this.crearAsientoPago()
       this.mostrarOcultar()
+      this.factura1 = true
+      this.factura2 = false
     } else {
       this.error = true
     }
@@ -211,7 +263,7 @@ export class MenuUsuarioComponent {
       ubicacion: "",
       estado: "A"
     }
-    console.log(vuelo)
+    console.log(asiento)
     this.vuelosMostrar = vuelo
     this.precio = vuelo.precio
 
@@ -234,6 +286,7 @@ export class MenuUsuarioComponent {
       this.precio += vuelo.precioAsientoBasico
 
     }
+    console.log(asiento)
 
     this.asiServ.postAsiento(asiento)?.subscribe(
       res => {
@@ -245,6 +298,7 @@ export class MenuUsuarioComponent {
           estadoPago: "P",
           fecha: new Date(),
           estado: "A"
+
         }
 
         this.resServ.postReserva(reserva)?.subscribe(
@@ -255,7 +309,9 @@ export class MenuUsuarioComponent {
               estado: "A"
             }
 
-            this.facturaServ.postFactura(factura)?.subscribe(fac => { console.log(fac) })
+            this.reserva=reserva
+
+            this.facturaServ.postFactura(factura)?.subscribe(fac => { console.log(fac)})
 
             console.log(data)
             this.toastr.success('Reserva guardau', 'Éxito')

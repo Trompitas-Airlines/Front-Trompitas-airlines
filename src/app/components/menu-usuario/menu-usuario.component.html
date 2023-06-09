@@ -34,7 +34,7 @@
             <label>
               <input (click)="sasientoNormal('A2')" type="checkbox" [checked]="asientoSeleccionado === 'A2'" [disabled]="false" />
               A2
-            </label>       
+            </label>
             <label>
               <input (click)="sasientoNormal('A3')" type="checkbox" [checked]="asientoSeleccionado === 'A3'" [disabled]="false" />
               A3
@@ -46,7 +46,7 @@
             <label>
               <input (click)="sasientoNormal('A5')" type="checkbox" [checked]="asientoSeleccionado === 'A5'" [disabled]="false"/>
               A5
-            </label>   
+            </label>
           </div>
           <div class="sub-contenedor-asientos">
             <label>
@@ -56,7 +56,7 @@
             <label>
               <input (click)="sasientoNormal('A7')" type="checkbox" [checked]="asientoSeleccionado === 'A7'" [disabled]="false"/>
               A7
-            </label>       
+            </label>
             <label>
               <input (click)="sasientoNormal('A8')" type="checkbox" [checked]="asientoSeleccionado === 'A8'" [disabled]="false"/>
               A8
@@ -68,7 +68,7 @@
             <label>
               <input (click)="sasientoNormal('A10')" type="checkbox" [checked]="asientoSeleccionado === 'A10'" [disabled]="false"/>
               A5
-            </label>  
+            </label>
           </div>
           <div class="sub-contenedor-asientos">
             <label>
@@ -116,9 +116,9 @@
           </div>
 
         </div>
-        
-        
-        
+
+
+
 
         <div class="input-group f-class">
             <div>
@@ -138,7 +138,7 @@
           <label>
             <input (click)="sasientoNormal('B2')" type="checkbox" [checked]="asientoSeleccionado === 'B2'" [disabled]="false"/>
             B2
-          </label>       
+          </label>
           <label>
             <input (click)="sasientoNormal('B3')" type="checkbox" [checked]="asientoSeleccionado === 'B3'" [disabled]="false"/>
             B3
@@ -150,7 +150,7 @@
           <label>
             <input (click)="sasientoNormal('B5')" type="checkbox" [checked]="asientoSeleccionado === 'B5'" [disabled]="false"/>
             B5
-          </label>   
+          </label>
         </div>
         <div class="sub-contenedor-asientos">
           <label>
@@ -160,7 +160,7 @@
           <label>
             <input (click)="sasientoNormal('B7')" type="checkbox" [checked]="asientoSeleccionado === 'B7'" [disabled]="false"/>
             B7
-          </label>       
+          </label>
           <label>
             <input (click)="sasientoNormal('B8')" type="checkbox" [checked]="asientoSeleccionado === 'B8'" [disabled]="false"/>
             B8
@@ -172,7 +172,7 @@
           <label>
             <input (click)="sasientoNormal('B10')" type="checkbox" [checked]="asientoSeleccionado === 'B10'" [disabled]="false"/>
             B5
-          </label>  
+          </label>
         </div>
         <div class="sub-contenedor-asientos">
           <label>
@@ -220,7 +220,7 @@
         </div>
       </div>
 
-      
+
         <div class="input-group f-class">
           <div>
               <label for="">Clase básica</label>
@@ -238,7 +238,7 @@
         <label>
           <input (click)="sasientoNormal('C2')" type="checkbox" [checked]="asientoSeleccionado === 'C2'" [disabled]="false"/>
           C2
-        </label>       
+        </label>
         <label>
           <input (click)="sasientoNormal('C3')" type="checkbox" [checked]="asientoSeleccionado === 'C3'" [disabled]="false"/>
           C3
@@ -250,7 +250,7 @@
         <label>
           <input (click)="sasientoNormal('C5')" type="checkbox" [checked]="asientoSeleccionado === 'C5'" [disabled]="false"/>
           C5
-        </label>   
+        </label>
       </div>
       <div class="sub-contenedor-asientos">
         <label>
@@ -260,7 +260,7 @@
         <label>
           <input (click)="sasientoNormal('C7')" type="checkbox" [checked]="asientoSeleccionado === 'C7'" [disabled]="false"/>
           C7
-        </label>       
+        </label>
         <label>
           <input (click)="sasientoNormal('C8')" type="checkbox" [checked]="asientoSeleccionado === 'C8'" [disabled]="false"/>
           C8
@@ -272,7 +272,7 @@
         <label>
           <input (click)="sasientoNormal('C10')" type="checkbox" [checked]="asientoSeleccionado === 'C10'" [disabled]="false"/>
           C5
-        </label>  
+        </label>
       </div>
       <div class="sub-contenedor-asientos">
         <label>
@@ -318,14 +318,14 @@
           C20
         </label>
       </div>
-        
+
     </div>
 
         <h3 id="conformation-message" class="conformation"></h3>
 
-        <button (click)="preciosAsientos()" id="book-btn" class="btn-style">Ver información vuelo</button>
+        <button (click)="preciosAsientos()" id="book-btn" class="btn-style   mb-2">Ver información vuelo</button>
 
-        <button (click)="enviarAhora()" id="book-btn" class="btn-style">Reserva ahora</button>
+        <button (click)="enviarAhora()" id="book-btn" class="btn-style mb-2">Reserva ahora</button>
 
         <button (click)="enviar()" id="book-btn" class="btn-style">Reserva y paga después</button>
 
@@ -343,12 +343,12 @@
           <span >|Precio asiento básico: {{vuelosMostrar.precioAsientoBasico}}$</span>
           <span >|Hora de salida: {{vuelosMostrar.horaSalida}}</span>
           <span >|Hora de llegada: {{vuelosMostrar.horaLlegada}}</span>
-          <span>|-----------------------------------------------</span> 
+          <span>|-----------------------------------------------</span>
         </pre>
 
       </div>
 
-      <div style="color: black;" class="info-box" *ngIf="vuelo">
+      <div style="color: black;" class="info-box" *ngIf="factura1">
           <pre>
             <span>|------------Factura-------|</span>
             <span >| Id del vuelo: {{vuelosMostrar.idVuelo}}        |</span>
@@ -356,7 +356,22 @@
             <span >| Id aeropuerto destino: {{vuelosMostrar.idAeropuertoDestino}} |</span>
             <span >| Precio total: {{precio}}$       |</span>
             <span>| Asiento: {{asientoSeleccionado}}              |</span>
+            <span>|Estado de pago: Pagado |</span>
             <span>|---------------------------|</span>
+          </pre>
+        </div>
+        <div style="color: black;" class="info-box" *ngIf="factura2">
+          <pre>
+            <span>|------------Factura-------|</span>
+            <span >| Id del vuelo: {{vuelosMostrar.idVuelo}}        |</span>
+            <span >| Id aeropuerto origen: {{vuelosMostrar.idAeropuertoOrigen}}  |</span>
+            <span >| Id aeropuerto destino: {{vuelosMostrar.idAeropuertoDestino}} |</span>
+            <span >| Precio total: {{precio}}$       |</span>
+            <span>| Asiento: {{asientoSeleccionado}}|</span>
+            <span *ngIf="mensajePago">|Estado de pago: Pagado |</span>
+            <span *ngIf="!mensajePago">|Estado de pago: No pagado | </span>
+            <span>|---------------------------|</span>
+            <button (click)="actFactura()" id="book-btn" class="btn-style   mb-2">Pagar</button>
           </pre>
         </div>
     </div>
